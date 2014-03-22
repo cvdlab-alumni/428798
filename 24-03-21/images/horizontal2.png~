@@ -1,0 +1,37 @@
+<html>
+	<body>
+		<title>Consegna homework </title>
+		<h1>Consegna homework 1</h1>
+		<h2>21/03/14</h2>
+		<ul type="disc">
+			<li><b>Building name:</b> <i>Neue Nationalgalerie (designed by Ludwig Mies van der Rohe)</i></li>
+			<li><b>Name and surname:</b> Leonardo Tilomelli</li>
+			<li><b>University ID:</b> 428798</li>
+		</ul>
+		Web documentation used to carry out the homework:
+		<ul type="disc">
+			<li><a href="http://www.archweb.it/dwg/arch_arredi_famosi/Mies_van_der_rohe/national_gallery_berlino/national_gallery_berlino.htm">2D plants</a> of the building</li>
+			<li><a href="http://www.archweb.it/dwg/arch_arredi_famosi/mies_van_der_rohe/national_gallery_berlino/national_gallery_berlino_3D.htm">3D plants</a>  of the building</li>
+			<li><a href="http://en.wikipedia.org/wiki/Neue_Nationalgalerie">The Wikipedia page</a> of the building</li>
+			<li>Articles/blogs on the topic (<a href="http://www.tecnologos.it/index.php?option=com_content&view=article&id=389:mies-van-der-rohe-la-neue-nationalgalerie&catid=66:17&Itemid=95">here</a> is an instance)</li>
+			<li>As well as several Google images to gain as many perspectives and details as I could:
+				<ul type="square">
+					<li><a href="http://es.wikiarquitectura.com/images/1/1b/6_nationalgalerie.jpg">Reference1</a></li>
+					<li><a href="http://upload.wikimedia.org/wikipedia/commons/7/76/Neue_Nationalgalerie_1.jpg">Reference2</a></li>
+					<li><a href="http://www.mimoa.eu/images/27975_l.jpg">Reference3</a></li>
+					<li><a href="http://www.e-architect.co.uk/images/jpgs/berlin/neue_national_galerie_aw050909_9.jpg">Reference4</a></li>
+					<li><a href="http://1.bp.blogspot.com/-0cj2qm_BDK8/ThgAsBBOnpI/AAAAAAAAAWA/Ry9kA3Wc-NE/s1600/berlin-neue-nationalgalerie-bau-ludwig-18474.jpg">Reference5</a></li>
+					<li>etc.</li>
+				</ul>
+			</li>
+		</ul>
+		<p>During my work I have tried to attain strictly to the guidelines provided by the exercises.</p>
+		
+		<p>After an initial stage of projectation I moved over to the 2.5D model based on the horizontal partitioning. I focused on the groundfloor of the building and ignored the underground.</p>
+
+		<img src=”images/horiziontal2.png” align=”center” alt="Due to the lack of horizontal surfaces this early submodel is very poor, though I took advantage laying out the roof grid.">
+
+		<p></p>
+		
+	</body>
+</html>
