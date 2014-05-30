@@ -96,4 +96,3 @@ DRAW(master)
 toRemove = [48,54,61]
 master = REMOVE_CELLS(master, toRemove)
 DRAW(master)
-
