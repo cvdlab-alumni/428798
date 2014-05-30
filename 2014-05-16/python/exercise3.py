@@ -14,6 +14,9 @@ import sysml
 from sysml import *
 
 
+''' Shortcut for the visualization of a LAR model diagram '''
+DRAW = COMP([VIEW,STRUCT,MKPOLS])
+
 
 ''' Takes a lar diagram model as input and returns its 
 	corresponding HPC (re-)numbered 1-skeleton. '''
@@ -54,38 +57,43 @@ def MNR_CELLS(master, diagrams, toMerge, toRemove):
 	if(toMerge and toRemove):
 		# elems in diagrams and in toMerge are mapped 1-to-1 thus they must be equally numerous
 		if (len(diagrams) == len(toMerge)):
-			# foreach cell value in toRemove: decrease by 1 any lower value in toMerge
-			for r in toRemove:
-				for i in range(len(toMerge)):
-					if (toMerge[i] >= r):
-						toMerge[i] -= 1
-	# When the follout of the removals has been mapped over the 
-	# numbering of cells to be merged  the "REMOVE" and "MERGE" 
-	# operations can be chained safely
+			# foreach cell number in toMerge: decrease it by 1 foreach lower value in toRemove
+			for i in range(len(toMerge)):
+				c = 0
+				for r in toRemove:
+					if (toMerge[i] > r):
+						c += 1
+				toMerge[i] -= c
+	# once the fallout of removals has been prevented (re-numbering of cells to merge)
+	# the "REMOVE" and "MERGE" operations can be chained safely
 	master = REMOVE_CELLS(master, toRemove)
 	master = MERGE_CELLS(master, diagrams, toMerge)
 	return master
 
 
 
-'''	------------ TESTING ON THE APARTMENT DEFINITION ------------- '''
+'''	------------ TESTING (lar-cc/test/py/sysml/test04.py) ------------- '''
 
-# MASTER DIAGRAM:
-shape0 = [1,4,2]
-sizePatterns0 = [[1], [1,1,1,1], [2,1]]
-master = assemblyDiagramInit(shape0)(sizePatterns0)
+# INITIAL ASSEMBLY
+master = assemblyDiagramInit([5,5,2])([[.3,3.2,.1,5,.3],[.3,4,.1,2.9,.3],[.3,2.7]])
 VIEW_1_SKEL(master)
+# DIAGRAM REPRESENTING A WALL WITH A DOOR HOLE
+diagram1 = assemblyDiagramInit([3,1,2])([[2,1,2],[.3],[2.2,.5]])
+VIEW_1_SKEL(diagram1)
+# DIAGRAM REPRESENTING A WALL WITH TWO WINDOW HOLES
+diagram2 = assemblyDiagramInit([5,1,3])([[1.5,0.9,.2,.9,1.5],[.3],[1,1.4,.3]])
+VIEW_1_SKEL(diagram2)
 
-# DIAGRAM TO MERGE
-shape1 = [2,2,2]
-sizePatterns1 = [[0.5,0.5], [0.5,0.5], [0.5,0.5]]
-diagram = assemblyDiagramInit(shape1)(sizePatterns1)
-VIEW_1_SKEL(diagram)
-
-''' HERE THE MERGE-NUMBERING-REMOVE IS AUTOMATIZED IN ONE SINGLE OPERATION: '''
-diagrams = [diagram, diagram]
-toMerge = [3, 7]
-toRemove = [1, 5, 2]
+''' MERGE-NUMBERING-REMOVE IS AUTOMATIZED IN ONE SINGLE OPERATION: '''
+diagrams = [diagram1, diagram2]
+toMerge = [31, 39]
+toRemove = [13,33,17,37]
 master = MNR_CELLS(master, diagrams, toMerge, toRemove)
 VIEW_1_SKEL(master)
+DRAW(master)
+
+# REMOVAL OF LAST CELLS PRODUCED BY PREVIOUS MERGINGS
+toRemove = [48,54,61]
+master = REMOVE_CELLS(master, toRemove)
+DRAW(master)
 
