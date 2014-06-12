@@ -17,6 +17,16 @@ def extractFacets(master, emptyChain=[]):
 	return B_Rep
 ```
 
+Triangular facets extraction of a block diagram
+
+
+``` py
+def extractTriaFacets(master, emptyChain=[]):
+	master = extractFacets(master,emptyChain)
+	master = quads2tria(master)
+	return master
+```
+
 Exports a model (V,FV) into an .obj format file at 'filePath'
 
 
@@ -36,16 +46,6 @@ def objExporter((V,FV), filePath):
 			out_file.write(" " + str(v+1))
 		out_file.write("\n")
 	out_file.close()
-```
-
-Triangular facets extraction of a block diagram
-
-
-``` py
-def extractTriaFacets(master, emptyChain=[]):
-	master = extractFacets(master,emptyChain)
-	master = quads2tria(master)
-	return master
 ```
 
 Rimuove dalla lista dei vertici i vertici non effettivamente utilizzati per la definizione delle celle
