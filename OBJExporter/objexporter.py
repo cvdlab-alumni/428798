@@ -1,3 +1,6 @@
+import simplexn
+from simplexn import *
+
 
 ''' Facets extraction of a block diagram '''
 def extractFacets(master, emptyChain=[]):
@@ -11,6 +14,7 @@ def extractFacets(master, emptyChain=[]):
 	boundaryFaces = [FV[face] for face in BF]
 	B_Rep = V,boundaryFaces
 	return B_Rep
+
 
 ''' Exports a model (V,FV) into an .obj format file at 'filePath' '''
 def objExporter((V,FV), filePath):
@@ -28,6 +32,14 @@ def objExporter((V,FV), filePath):
 			out_file.write(" " + str(v+1))
 		out_file.write("\n")
 	out_file.close()
+
+
+''' Triangular facets extraction of a block diagram '''
+def extractTriaFacets(master, emptyChain=[]):
+	master = extractFacets(master,emptyChain)
+	master = quads2tria(master)
+	return master
+
 
 ''' Rimuove dalla lista dei vertici i vertici non effettivamente 
 	utilizzati per la definizione delle celle '''
