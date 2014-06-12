@@ -37,3 +37,21 @@ def objExporter((V,FV), filePath):
 		out_file.write("\n")
 	out_file.close()
 ```
+
+Rimuove dalla lista dei vertici i vertici non effettivamente utilizzati per la definizione delle celle
+
+
+``` py
+def clearUnusedVertices((V,CV)):
+	UV = [v for cell in CV for v in cell]
+	UnV = [k for k,vert in enumerate(V) if k not in UV]
+	for cell in CV:
+		for i in range(len(cell)):
+			c = 0
+			for v in UnV:
+				if cell[i] > v:
+					c += 1
+			cell[i] -= c
+	V = [vert for k,vert in enumerate(V) if k not in UnV]
+	return V,CV
+```
