@@ -9,7 +9,7 @@ Code organization
 ================
 * [Doors.js] (scripts/Doors.js): contains functions to create doors.
 * [Dwelling.js] (scripts/Dwelling.js): contains function to create objects which extend the dwelling structure (e.g.: balconies, landing).
-* [FPSAnimation.js] (scripts/FPSAnimation.js): is the code used to switch between trackball system and PointerLock.
+* [FPSControl.js] (scripts/FPSControl.js): is the code used to switch between trackball system and PointerLock.
 * [Furniture.js] (scripts/Furniture.js): loads and processes until the animation assignment all the models to import. 
 * [ImportUtilities.js] (scripts/ImportUtilities.js): provides functions for the import of .obj and .obj-.mtl models.
 * [Init.js] (scripts/Init.js): initializes all the variables, creates the dwelling and takes care of the rendering.

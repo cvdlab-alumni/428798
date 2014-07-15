@@ -13,7 +13,6 @@ function init() {
 	camera.up = new THREE.Vector3(0, 1, 0);
 	camera.position.set(-60, 67, 0);
 	scene.add(camera);
-	camera.lookAt(new THREE.Vector3(0, 1000, 0))
 
 	camera_mirror = new THREE.CubeCamera(0.1, 100, 512);
 	camera_mirror.position.set(14, 12, -33); 
@@ -195,20 +194,4 @@ function onWindowResize() {
 	renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-
-function computeFPControls() {
-	controls.isOnObject(false);
-	rayCaster.ray.origin.copy(controls.getObject().position);
-	rayCaster.near = 0.01;
-	rayCaster.far = 10;
-	rayCaster.precision = 1;
-	var intersections = rayCaster.intersectObjects(toIntersect);
-	if (intersections.length > 0) {
-		var distance = intersections[0].distance;
-		if (distance > 0 && distance < 100) {
-			controls.isOnObject(true);
-		}
-	}
-	controls.update();
-}
 

@@ -8,9 +8,10 @@ if (havePointerLock) {
   var pointerlockchange = function(event) {
     if (document.pointerLockElement === element || document.mozPointerLockElement === element || document.webkitPointerLockElement === element) {
       FPenabled = true;
+      trackballControls.reset();
       controls.enabled = true;
       camera.position.set(0, 0, 0);
-      camera.up = new THREE.Vector3(0, 0, 0);
+      camera.up = new THREE.Vector3(0, 1, 0);
       $("#pointer").fadeIn(1000);
     } else {
       location.reload();
@@ -30,7 +31,6 @@ if (havePointerLock) {
   document.addEventListener('webkitpointerlockerror', pointerlockerror, false);
 
   var startFPS = function() {
-    trackballControls.reset();
     controls = new THREE.PointerLockControls(camera, -50, 14, 53, -Math.PI/2);
     scene.add(controls.getObject());
     element.requestPointerLock = element.requestPointerLock || element.mozRequestPointerLock || element.webkitRequestPointerLock;
@@ -49,5 +49,22 @@ if (havePointerLock) {
     } else {
       element.requestPointerLock();
     }
-  };
+  }
+
+  function computeFPControls() {
+    controls.isOnObject(false);
+    rayCaster.ray.origin.copy(controls.getObject().position);
+    rayCaster.near = 0.01;
+    rayCaster.far = 10;
+    rayCaster.precision = 1;
+    var intersections = rayCaster.intersectObjects(toIntersect);
+    if (intersections.length > 0) {
+      var distance = intersections[0].distance;
+      if (distance > 0 && distance < 100) {
+        controls.isOnObject(true);
+      }
+    }
+    controls.update();
+  }
+
 }
