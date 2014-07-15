@@ -1,5 +1,7 @@
 #EXERCISE 4
 
+from exercise3 import *
+
 def coneTree(h):
 	trunk = COLOR([192./255, 64./255, 0./255])(CYLINDER([h/16., h/5.])(36))
 	hair = COLOR([34./255, 139./255, 34./255])(CONE([h/4., 5*h/5.])(36))

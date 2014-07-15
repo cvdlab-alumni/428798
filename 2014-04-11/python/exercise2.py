@@ -1,5 +1,7 @@
 #EXERCISE 2
 
+from exercise1 import *
+
 #Walls
 glass = MATERIAL([1,1,1,0.1,  0,0,0.8,0.5,  1,1,1,0.1,  1,1,1,0.1,  100])(GRID([[0],[0.5*s],[1*s]]))
 support0 = GRID([[-0.001*s,0.01],[0.5*s],[-0.3*s,0.01*s]])
