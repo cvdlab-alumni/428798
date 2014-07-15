@@ -2,11 +2,9 @@
  * @author mrdoob / http://mrdoob.com/
  */
 
-THREE.PointerLockControls = function ( camera, posX, posY, posZ, rotY ) {
+THREE.PointerLockControls = function ( camera ) {
 
 	var scope = this;
-
-	var altitude = posY;
 
 	camera.rotation.set( 0, 0, 0 );
 
@@ -14,8 +12,7 @@ THREE.PointerLockControls = function ( camera, posX, posY, posZ, rotY ) {
 	pitchObject.add( camera );
 
 	var yawObject = new THREE.Object3D();
-	yawObject.position.set( posX, posY, posZ );
-	yawObject.rotation.y = rotY;
+	yawObject.position.y = 16.4;
 	yawObject.add( pitchObject );
 
 	var moveForward = false;
@@ -42,7 +39,7 @@ THREE.PointerLockControls = function ( camera, posX, posY, posZ, rotY ) {
 		yawObject.rotation.y -= movementX * 0.002;
 		pitchObject.rotation.x -= movementY * 0.002;
 
-		//pitchObject.rotation.x = Math.max( - PI_2, Math.min( PI_2, pitchObject.rotation.x ) );
+		pitchObject.rotation.x = Math.max( - PI_2, Math.min( PI_2, pitchObject.rotation.x ) );
 
 	};
 
@@ -70,7 +67,7 @@ THREE.PointerLockControls = function ( camera, posX, posY, posZ, rotY ) {
 				break;
 
 			case 32: // space
-				if ( canJump === true ) velocity.y += 350;
+				if ( canJump === true ) velocity.y += 200;
 				canJump = false;
 				break;
 
@@ -172,10 +169,10 @@ THREE.PointerLockControls = function ( camera, posX, posY, posZ, rotY ) {
 		yawObject.translateY( velocity.y * delta ); 
 		yawObject.translateZ( velocity.z * delta );
 
-		if ( yawObject.position.y < altitude ) {
+		if ( yawObject.position.y < 14 ) {
 
 			velocity.y = 0;
-			yawObject.position.y = altitude;
+			yawObject.position.y = 14;
 
 			canJump = true;
 

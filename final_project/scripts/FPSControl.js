@@ -9,9 +9,12 @@ if (havePointerLock) {
     if (document.pointerLockElement === element || document.mozPointerLockElement === element || document.webkitPointerLockElement === element) {
       FPenabled = true;
       trackballControls.reset();
+      dat.GUI.toggleHide();
       controls.enabled = true;
       camera.position.set(0, 0, 0);
       camera.up = new THREE.Vector3(0, 1, 0);
+      controls.getObject().position.set(-50, 0, 53);
+      controls.getObject().rotation.y = -Math.PI/2;
       $("#pointer").fadeIn(1000);
     } else {
       location.reload();
@@ -31,7 +34,7 @@ if (havePointerLock) {
   document.addEventListener('webkitpointerlockerror', pointerlockerror, false);
 
   var startFPS = function() {
-    controls = new THREE.PointerLockControls(camera, -50, 14, 53, -Math.PI/2);
+    controls = new THREE.PointerLockControls(camera);
     scene.add(controls.getObject());
     element.requestPointerLock = element.requestPointerLock || element.mozRequestPointerLock || element.webkitRequestPointerLock;
     if (/Firefox/i.test(navigator.userAgent)) {
