@@ -1,5 +1,7 @@
 #EXERCISE 2
 
+from exercise1 import *
+
 glass = COLOR([171./255,205./255,239./255,0])( GRID([[0],[0.5*s],[1*s]]) )
 support0 = GRID([[-0.001*s,0],[0.5*s],[-0.3*s,0.01*s]])
 support1 = GRID([[-0.001*s,0],[-0.25*s,0.01*s],[0.3*s]])

@@ -1,5 +1,7 @@
 #EXERCISE 4
 
+from exercise3 import *
+
 ## height:		altezza totale scala
 ## breadth:		larghezza gradino
 ## steps_num:	numero gradini

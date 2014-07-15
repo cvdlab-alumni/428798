@@ -1,5 +1,7 @@
 #EXERCISE 3
 
+from exercise2 import *
+
 #Codice del modello costruito in ex.2-3 ma dotato di volumi
 
 #Volume pillars
