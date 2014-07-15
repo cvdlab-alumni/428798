@@ -1,5 +1,7 @@
 # EXERCISE 2
 
+from exercise1 import *
+
 
 '''	------------ MESURES AND UTILITY------------- '''
 X = 1
