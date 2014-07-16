@@ -9,7 +9,7 @@ function mkDoor(depth, width, height, doorDepth) {
 	var frmWidth = 0.05;
 	var frmHeight = 1.95
 
-	var frame = mkFrame(frmDepth, frmWidth, frmHeight, width);
+	var frame = mkFrame(frmDepth, frmWidth, frmHeight, width, 'porta_bordo.jpg', 'porta_bordo2.jpg');
 	var door = mkTexturedMesh2(new THREE.BoxGeometry(doorDepth, width-frmWidth*2 , height- frmWidth), 
 		'porta_facciata1.jpg', 'porta_facciata2.jpg', 'porta_bordo.jpg');
 	var handle1 = mkHandle();
@@ -40,13 +40,16 @@ function mkDoor(depth, width, height, doorDepth) {
 }
 
 
-function mkFrame(frmDepth, frmWidth, frmHeight, voidWidth) {
+function mkFrame(frmDepth, frmWidth, frmHeight, voidWidth, image1, image2) {
 	var frame = new THREE.Object3D();
 	var frameOffset = (voidWidth - frmWidth)/2;
 
-	var rightHandLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frmWidth, frmHeight), 'porta_bordo.jpg');
+	/*var rightHandLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frmWidth, frmHeight), 'porta_bordo.jpg');
 	var lefthandLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frmWidth, frmHeight), 'porta_bordo2.jpg');
-	var topLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frameOffset*2 + frmWidth, frmWidth), 'porta_bordo.jpg');
+	var topLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frameOffset*2 + frmWidth, frmWidth), 'porta_bordo.jpg');*/
+	var rightHandLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frmWidth, frmHeight), image1);
+	var lefthandLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frmWidth, frmHeight), image2);
+	var topLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frameOffset*2 + frmWidth, frmWidth), image1);
 
 	rightHandLintel.position.set(0, frameOffset, frmHeight/2);
 	lefthandLintel.position.set(0, -frameOffset, frmHeight/2);

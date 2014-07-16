@@ -45,9 +45,9 @@ function mkLargeWindowShutter(frmDepth, frmWidth, frmHeight, voidWidth) {
 function mk2ShuttersSmallWindow(frmDepth, frmWidth, frmHeight, voidWidth) {
 	var twoShutterSmallWindow = new THREE.Object3D();
 
-	var frame = mkFrame(0.35,0.05,1.02-0.05/2, 1.52);
+	var frame = mkFrame(0.35, 0.05, 1.02-0.05/2, 1.52, 'wood.jpg', 'wood.jpg');
 	var bottomLintel = mkTexturedMesh(new THREE.BoxGeometry(0.35, 1.52, 0.05), 'wood.jpg');
-	bottomLintel.position.set(0,0,-0.05/2)
+	bottomLintel.position.set(0, 0, -0.05/2)
 	frame.add(bottomLintel);
 	frame.bottomLintel = bottomLintel;
 
@@ -86,7 +86,7 @@ function mk2ShuttersLargeWindow(frmDepth, frmWidth, frmHeight, voidWidth) {
 	var hookShutter1 = new THREE.Object3D();
 	var hookShutter2 = new THREE.Object3D();
 
-	var frame = mkFrame(0.35,0.05,1.95, 1.5);
+	var frame = mkFrame(0.35, 0.05, 1.95, 1.5, 'wood.jpg', 'wood.jpg');
 	var largeShutter1 = mkLargeWindowShutter(frmDepth, frmWidth, frmHeight, voidWidth);
 	var largeShutter2 = mkLargeWindowShutter(frmDepth, frmWidth, frmHeight, voidWidth);
 	var handle = mkHandle();
@@ -120,7 +120,7 @@ function mk4ShuttersLargeWindow(frmDepth, frmWidth, frmHeight, voidWidth) {
 	var hookShutter2 = new THREE.Object3D();
 	var hookShutter3 = new THREE.Object3D();
 
-	var frame = mkFrame(0.35,0.05,1.95, 2.8);
+	var frame = mkFrame(0.35, 0.05, 1.95, 2.8, 'wood.jpg', 'wood.jpg');
 	var largeShutter1 = mkLargeWindowShutter(frmDepth, frmWidth, frmHeight, voidWidth);
 	var largeShutter2 = mkLargeWindowShutter(frmDepth, frmWidth, frmHeight, voidWidth);
 	var largeShutter3 = mkLargeWindowShutter(frmDepth, frmWidth, frmHeight, voidWidth);
