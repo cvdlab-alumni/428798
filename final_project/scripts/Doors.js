@@ -44,9 +44,6 @@ function mkFrame(frmDepth, frmWidth, frmHeight, voidWidth, image1, image2) {
 	var frame = new THREE.Object3D();
 	var frameOffset = (voidWidth - frmWidth)/2;
 
-	/*var rightHandLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frmWidth, frmHeight), 'porta_bordo.jpg');
-	var lefthandLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frmWidth, frmHeight), 'porta_bordo2.jpg');
-	var topLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frameOffset*2 + frmWidth, frmWidth), 'porta_bordo.jpg');*/
 	var rightHandLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frmWidth, frmHeight), image1);
 	var lefthandLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frmWidth, frmHeight), image2);
 	var topLintel = mkTexturedMesh(new THREE.BoxGeometry(frmDepth, frameOffset*2 + frmWidth, frmWidth), image1);
