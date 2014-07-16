@@ -24,19 +24,19 @@ Code organization
 
 Features and Graphic Techniques:
 ==================
-* Bump map and normal map
 * Textures
+* Bump map and normal map
+* .obj and .obj/.mtl model files import
 * Tween animations
-* .obj and .obj/.mtl models import
-* Skybox
-* PointerLockControl
-* FPSControl
+* TrackBallControl
+* PointerLockControl (FirstPersonShooter mode)
 * Object-Picking
 * Particle System
-* Dynamic video texture
-* WebRTC WebCam
+* Skybox
+* Video texture
 * Audio distance fade
 * Sound effects
+* WebRTC WebCam
 
 Animations:
 ==================
@@ -48,7 +48,7 @@ Animations:
 * Cooker: light the fires
 * Clock: pick it to see what's the current time
 * Toilet cover: pull it up or push it down
-* Toilet flushing button: push it and stare at the flush (with sound effect)
-* Mirror: if enabled you can keep an eye behind
+* Toilet flushing button: push it and stare at the flushed water (with sound effect)
+* Mirror: keep an eye behind you (must be enabled)
 * Computer monitor: Windows XP startup + webcam (with sound)
 * Light switches: switch up/down and make lamps light on/off (with sound)
